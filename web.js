@@ -9,7 +9,10 @@ app.get('/', function(request, response) {
   response.send(myBuffer.toString());
 });
 
-var port = /*process.env.PORT ||*/ 8080;
+var port = process.env.PORT || 8080;
+
+app.use("/img", express.static(__dirname + "img"));
+
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
